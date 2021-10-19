@@ -14,13 +14,21 @@ class preprocess():
         Method to read data from the csv file
         and return train and test data (80:20 split)
         Args:
-            file_name (str): [description]
+            file_name (str): name of the csv file
 
         Returns:
-            pd.DataFrame: [description]
+            pd.DataFrame: train data and test data
         """        
         train, test = g.get_data(file_name=file_name, save=True)
         return train, test
 
-    def preprocess_data(self, df):
-        
+    def fit(self, data:pd.DataFrame)->pd.DataFrame:
+        """
+        Method to fit the data 
+        Args:
+            data (pd.DataFrame): data to fit
+        Returns:
+            pd.DataFrame: fitted data
+        """
+        data = 
+        return data
