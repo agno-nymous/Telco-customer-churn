@@ -74,8 +74,7 @@ if uploaded_file:
         shap_values.values[index,:],
         x_test.iloc[index,:],
         link = "logit" #to show probability instead os shapley value
-            ),
-            height = 500)
+            ))
 
 
 
