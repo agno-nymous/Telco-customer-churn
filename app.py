@@ -10,8 +10,9 @@ import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 
 st.set_page_config(layout='wide')
-st.title("Tesco")
+st.title("Telco")
 st.subheader("""Customer Churn Analysis""")
+st.caption("""By Arun & Ashish""")
 
 def load_model():
     with open('./model/best_model.pkl', 'rb') as f:
