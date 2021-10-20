@@ -57,7 +57,7 @@ if uploaded_file:
 
         Red: Increases probability of churn
         Blue: Decreases probability of churn
-        width: strength of impact
+        length: strength of influence of feature on churn probability
         """
     )
     st.write(
