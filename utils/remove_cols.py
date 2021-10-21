@@ -4,6 +4,7 @@ import os
 import utils.get_data as get_data
 from scipy.stats import chi2_contingency
 
+
 def get_obj_cols(data: pd.DataFrame) -> list:
     """
     Returns a list of columns that are of object dtype.
@@ -13,9 +14,10 @@ def get_obj_cols(data: pd.DataFrame) -> list:
 
     Returns:
         list: list of columns
-    """    
+    """
 
-    return [i for i in data.columns if data[i].dtype == 'object']
+    return [i for i in data.columns if data[i].dtype == "object"]
+
 
 def get_int_cols(data: pd.DataFrame) -> list:
     """
@@ -26,16 +28,17 @@ def get_int_cols(data: pd.DataFrame) -> list:
 
     Returns:
         list: list of columns
-    """    
+    """
 
-    return [i for i in data.columns if data[i].dtype != 'object']
+    return [i for i in data.columns if data[i].dtype != "object"]
+
 
 def get_significant_categorical(
     data: pd.DataFrame,
-    columns:list,
-    target:str = 'Churn',
-    threshold:float = 0.05,
-    )-> list:
+    columns: list,
+    target: str = "Churn",
+    threshold: float = 0.05,
+) -> list:
     """This function returns all the categorical columns which have significant difference with target column unique values using
     Chi-squared test and also those columns which are not significant
 
@@ -47,7 +50,7 @@ def get_significant_categorical(
 
     Returns:
         [list]: list of significant columns and non-significant columns
-    """    
+    """
 
     significant = np.array([])
     non_significant = np.array([])
@@ -60,9 +63,10 @@ def get_significant_categorical(
 
     return significant, non_significant
 
+
 def main(
-    target: str = 'Churn',
-    ) -> pd.DataFrame:
+    target: str = "Churn",
+) -> pd.DataFrame:
     """This function removes the unimportant columns
 
     Args:
@@ -74,7 +78,9 @@ def main(
     train, test = get_data.get_data()
     obj_cols = get_obj_cols(train)
     int_cols = get_int_cols(train)
-    significant_obj, non_significant_obj = get_significant_categorical(train, obj_cols, target)
+    significant_obj, non_significant_obj = get_significant_categorical(
+        train, obj_cols, target
+    )
 
     for col in non_significant_obj:
         train.drop(col, axis=1, inplace=True)
